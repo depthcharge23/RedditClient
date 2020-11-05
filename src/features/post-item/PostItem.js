@@ -7,8 +7,8 @@ import "./PostItem.css";
  * Author: Aaron Mathews
  * Date: 111/4/2020
  */
-export const PostItem = () => {
+export const PostItem = (props) => {
     return (
-        <h1>PostItem</h1>
+        <h1>{props.title}</h1>
     )
 };

@@ -9,10 +9,16 @@ import { PostItem } from "./PostItem";
  * Date: 11/4/2020
  */
 describe("PostItem component", () => {
-    it("has PostItem header", () => {
-        const wrapper = shallow(<PostItem />);
-        const text = wrapper.find("h1").text();
+    it("has title of the reddit post as the title", () => {
+        // Setup
+        const title = "Hello, World!";
+        const element = "h1";
 
-        expect(text).toEqual("PostItem");
+        // Exercise
+        const wrapper = shallow(<PostItem title={title} />);
+        const text = wrapper.find(element).text();
+
+        // Verify
+        expect(text).toEqual(title);
     });
 });
