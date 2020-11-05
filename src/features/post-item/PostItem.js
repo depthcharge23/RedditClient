@@ -9,6 +9,9 @@ import "./PostItem.css";
  */
 export const PostItem = (props) => {
     return (
-        <h1>{props.title}</h1>
+        <div>
+            <h1>{props.title}</h1>
+            <img src={props.src} alt={props.alt} />
+        </div>        
     )
 };
