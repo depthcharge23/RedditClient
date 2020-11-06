@@ -9,12 +9,14 @@ import { PostItem } from "../post-item/PostItem";
  * Date: 11/5/2020
  */
 export const PostList = (props) => {
-    let posts = [];
+    let posts = null;
     
-    if (props.posts) {
+    if (props.posts && props.posts.length > 0) {
         posts = props.posts.map((post, index) => {
             return <PostItem title={post.title} src={post.src} alt={post.alt} key={index} />
         });
+    } else {
+        posts = <p>No posts could be found...</p>;
     }
 
 

@@ -57,4 +57,31 @@ describe("PostList component", () => {
         // Verify
         expect(li).toHaveLength(count);
     });
+
+    it("renders an error message when given an empty list", () => {
+        // Setup
+        const posts = [];
+        const element = "p";
+        const error = "No posts could be found...";   
+
+        // Exercise
+        const wrapper = shallow(<PostList posts={posts} />);
+        const text = wrapper.find(element).text();
+
+        // Verify
+        expect(text).toEqual(error);
+    });
+
+    it("renders an error message when given no list", () => {
+        // Setup
+        const element = "p";
+        const error = "No posts could be found...";   
+
+        // Exercise
+        const wrapper = shallow(<PostList />);
+        const text = wrapper.find(element).text();
+
+        // Verify
+        expect(text).toEqual(error);
+    });
 });
