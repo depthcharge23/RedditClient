@@ -12,12 +12,52 @@ import { PostList } from "./features/post-list/PostList";
  * Author: Aaron Mathews
  * Date: 11/5/2020
  */
-export const App = () => {
-    return (
-        <div>
-            <h1>Reddit Client</h1>
-            <PostList />
-        </div>
-        
-    );
-};
+// export const App = () => {
+//     return (
+//         <div>
+//             <h1>Reddit Client</h1>
+//             <PostList />
+//         </div>        
+//     );
+// };
+
+export class App extends React.Component {
+    constructor() {
+        super();
+
+        this.state = {
+            "posts": []
+        };
+    }
+
+    componentDidMount() {
+        this.setState({
+            "posts": [
+                {
+                    "title": "Post 1",
+                    "src": "Src1.jpg",
+                    "alt": "Alt 1"
+                },
+                {
+                    "title": "Post 2",
+                    "src": "Src2.jpg",
+                    "alt": "Alt 2"
+                },
+                {
+                    "title": "Post 2",
+                    "src": "Src2.jpg",
+                    "alt": "Alt 2"
+                },
+            ]
+        });
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>Reddit Client</h1>
+                <PostList posts={this.state.posts} />
+            </div>
+        );
+    }
+}

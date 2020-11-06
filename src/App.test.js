@@ -28,4 +28,36 @@ describe("App component", () => {
         // Verify
         expect(wrapper.containsMatchingElement(element)).toEqual(outcome);
     });
+
+    it("retrieves data from the Reddit JSON API and loads the data into its state", () => {
+        // Setup
+        const posts = [
+            {
+                "title": "Post 1",
+                "src": "Src1.jpg",
+                "alt": "Alt 1"
+            },
+            {
+                "title": "Post 2",
+                "src": "Src2.jpg",
+                "alt": "Alt 2"
+            },
+            {
+                "title": "Post 2",
+                "src": "Src2.jpg",
+                "alt": "Alt 2"
+            },
+        ];
+
+        // Exercise
+        const wrapper = shallow(<App />);
+        const componentInstance = wrapper.instance();
+
+        componentInstance.componentDidMount();
+
+        const state = wrapper.state("posts");
+
+        // Verify
+        expect(state).toEqual(posts);
+    });
 });
