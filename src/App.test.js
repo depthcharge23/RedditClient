@@ -27,6 +27,5 @@ describe("App component", () => {
 
         // Verify
         expect(wrapper.containsMatchingElement(element)).toEqual(outcome);
-
     });
 });
