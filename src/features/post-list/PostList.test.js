@@ -9,7 +9,7 @@ import { PostList } from "./PostList";
  * Date: 11/5/2020
  */
 describe("PostList component", () => {
-    it("renders a list of Reddit Posts", () => {
+    it("renders a list of posts", () => {
         // Setup
         const mockPosts = [
             {
