@@ -13,14 +13,22 @@ import Image from "react-bootstrap/Image";
  * Date: 11/04/2020
  */
 export const PostItem = (props) => {
-    console.log(props);
+    let image = null;
+
+    if (props.post.src) {
+        image = <Image src={props.post.src} alt={props.post.alt} width={"40%"} />;
+    }
 
     return (
         <Row className="post-item">
             <Col>
                 <h2>{props.post.title}</h2>
-                <p>{props.post.subreddit}</p>
-                <Image src={props.post.src} alt={props.post.alt} fluid />
+                <p>
+                    <a href={`https://www.reddit.com/${props.post.subreddit}`} target="_blank" rel="noreferrer">{props.post.subreddit}</a>&nbsp;
+                    by&nbsp;
+                    <a href={`https://www.reddit.com/u/${props.post.author}`} target="_blank" rel="noreferrer">{props.post.author}</a>
+                </p>
+                {image}
             </Col>            
         </Row>        
     )
