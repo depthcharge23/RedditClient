@@ -1,7 +1,12 @@
 import RedditHelper from "./RedditHelper";
 const expect = require("chai").expect;
-// const request = require("supertest");
 
+/**
+ * These unit tests are made to make sure that the RedditHelper class is working as intended.
+ * 
+ * Author: Aaron Mathews
+ * Date: 11/9/2020
+ */
 describe("Reddit API JSON Retrieval", () => {
     it("retrieves the top posts", async () => {
         // Setup
