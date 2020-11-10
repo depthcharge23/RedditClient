@@ -2,6 +2,9 @@ import React from "react";
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// Bootstrap Components
+import Container from "react-bootstrap/Container";
+
 // Custom Components
 import { PostList } from "./features/post-list/PostList";
 
@@ -34,10 +37,10 @@ export class App extends React.Component {
 
     render() {
         return (
-            <div>
+            <Container>
                 <h1>Reddit Client</h1>
                 <PostList posts={this.state.posts} />
-            </div>
+            </Container>
         );
     }
 }

@@ -2,6 +2,9 @@ import React from "react";
 import "./PostList.css";
 import { PostItem } from "../post-item/PostItem";
 
+// Bootstrap Components
+import Container from "react-bootstrap/Container";
+
 /**
  * The PostList component will handle rendering the list of Reddit posts.
  * 
@@ -15,15 +18,15 @@ export const PostList = (props) => {
     // Else display an error message saying that no posts could be found.
     if (props.posts && props.posts.length > 0) {
         posts = props.posts.map((post, index) => {
-            return <PostItem title={post.title} src={post.src} alt={post.alt} key={index} />
+            return <PostItem post={post} key={index} />
         });
     } else {
         posts = <p>No posts could be found...</p>;
     }
 
     return (
-        <div>
+        <Container>
             {posts}
-        </div>
+        </Container>
     );
 };
