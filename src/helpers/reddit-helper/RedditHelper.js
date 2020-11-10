@@ -1,11 +1,13 @@
-// const dotenv = require("dotenv");
+const dotenv = require("dotenv");
 const fetch = require("node-fetch");
 
-// dotenv.config();
+dotenv.config();
+const POPULAR_URL = process.env.POPULAR_URL;
+// const SEARCH_URL = process.env.SEARCH_URL;
 
 class RedditHelper {
     static async popular() {
-        const response = await fetch("https://www.reddit.com/r/popular.json");
+        const response = await fetch(POPULAR_URL);
         const json = await response.json();
 
         const posts = json.data.children.map(({ data }) => ({
