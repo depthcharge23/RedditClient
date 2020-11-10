@@ -11,5 +11,16 @@ describe("Reddit API JSON Retrieval", () => {
 
         // Verify
         expect(posts.length).equal(25);
-    }); 
+    });
+    
+    it("searches for posts related to user entered keywords", async () => {
+        // Setup
+        const keywords = "cake recipes";
+
+        // Exercise
+        const posts = await RedditHelper.search(keywords);
+
+        // Verify
+        expect(posts.length).equal(25);
+    });
 });
