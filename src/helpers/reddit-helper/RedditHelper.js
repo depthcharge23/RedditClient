@@ -1,10 +1,5 @@
 // Imports for Node packages and environment variables
-const dotenv = require("dotenv");
 const fetch = require("node-fetch");
-
-dotenv.config();
-const POPULAR_URL = process.env.POPULAR_URL;
-const SEARCH_URL = process.env.SEARCH_URL;
 
 /**
  * RedditHelper is a class designed to help interface with the Reddit JSON API. It contains methods to retrieve the popular posts, and
@@ -24,7 +19,7 @@ class RedditHelper {
      * Date: 11/9/2020
      */
     static async popular() {
-        const response = await fetch(POPULAR_URL);
+        const response = await fetch("https://www.reddit.com/r/popular.json");
         const json = await response.json();
 
         // Map only the data we need
@@ -53,7 +48,7 @@ class RedditHelper {
      */
     static async search(keywords) {
         const uri = encodeURIComponent(keywords);
-        const response = await fetch(`${SEARCH_URL}?q=${uri}`);
+        const response = await fetch(`https://www.reddit.com/search.json?q=${uri}`);
         const json = await response.json();
 
         // Map only the data we need

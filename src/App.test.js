@@ -2,6 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import { App } from "./App";
 import { PostList } from "./features/post-list/PostList";
+import RedditHelper from "./helpers/reddit-helper/RedditHelper";
 
 /**
  * Tests the behavior of the App component.
@@ -29,31 +30,15 @@ describe("App component", () => {
         expect(wrapper.containsMatchingElement(element)).toEqual(outcome);
     });
 
-    it("retrieves data from the Reddit JSON API and loads the data into its state", () => {
+    it("retrieves data from the Reddit JSON API and loads the data into its state", async () => {
         // Setup
-        const posts = [
-            {
-                "title": "Post 1",
-                "src": "Src1.jpg",
-                "alt": "Alt 1"
-            },
-            {
-                "title": "Post 2",
-                "src": "Src2.jpg",
-                "alt": "Alt 2"
-            },
-            {
-                "title": "Post 2",
-                "src": "Src2.jpg",
-                "alt": "Alt 2"
-            },
-        ];
+        const posts = await RedditHelper.popular();
 
         // Exercise
         const wrapper = shallow(<App />);
         const componentInstance = wrapper.instance();
 
-        componentInstance.componentDidMount();
+        await componentInstance.componentDidMount();
 
         const state = wrapper.state("posts");
 

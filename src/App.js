@@ -5,6 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // Custom Components
 import { PostList } from "./features/post-list/PostList";
 
+// Helpers
+import RedditHelper from "./helpers/reddit-helper/RedditHelper";
+
 /**
  * The App component is home to the other components PostList and Search. It will also handle all of the fetching from
  * the Reddit JSON API.
@@ -12,15 +15,6 @@ import { PostList } from "./features/post-list/PostList";
  * Author: Aaron Mathews
  * Date: 11/5/2020
  */
-// export const App = () => {
-//     return (
-//         <div>
-//             <h1>Reddit Client</h1>
-//             <PostList />
-//         </div>        
-//     );
-// };
-
 export class App extends React.Component {
     constructor() {
         super();
@@ -30,25 +24,11 @@ export class App extends React.Component {
         };
     }
 
-    componentDidMount() {
+    async componentDidMount() {
+        const posts = await RedditHelper.popular();
+
         this.setState({
-            "posts": [
-                {
-                    "title": "Post 1",
-                    "src": "Src1.jpg",
-                    "alt": "Alt 1"
-                },
-                {
-                    "title": "Post 2",
-                    "src": "Src2.jpg",
-                    "alt": "Alt 2"
-                },
-                {
-                    "title": "Post 2",
-                    "src": "Src2.jpg",
-                    "alt": "Alt 2"
-                },
-            ]
+            "posts": posts
         });
     }
 
