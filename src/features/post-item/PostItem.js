@@ -18,7 +18,7 @@ export const PostItem = (props) => {
     if (props.post.hasThumbnail) {
         thumbnail = (
             <Col xl={2}>
-                <Image src={props.post.thumbnail} />
+                <Image src={props.post.thumbnail} rounded />
             </Col>   
         );
     }
@@ -35,9 +35,6 @@ export const PostItem = (props) => {
                             by&nbsp;
                             <a href={`https://www.reddit.com/u/${props.post.author}`} target="_blank" rel="noreferrer">{props.post.author}</a>
                         </p>
-                    </Col>
-                    <Col className="right">
-                        
                     </Col>
                 </Row>
             </Col>
