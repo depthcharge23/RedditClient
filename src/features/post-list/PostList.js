@@ -25,7 +25,7 @@ export const PostList = (props) => {
     }
 
     return (
-        <Container>
+        <Container className="scrollbar">
             {posts}
         </Container>
     );

@@ -13,23 +13,35 @@ import Image from "react-bootstrap/Image";
  * Date: 11/04/2020
  */
 export const PostItem = (props) => {
-    let image = null;
+    let thumbnail = null;
 
-    if (props.post.src) {
-        image = <Image src={props.post.src} alt={props.post.alt} width={"40%"} />;
+    if (props.post.hasThumbnail) {
+        thumbnail = (
+            <Col xl={2}>
+                <Image src={props.post.thumbnail} />
+            </Col>   
+        );
     }
 
     return (
         <Row className="post-item">
-            <Col>
+            <Col xl={10}>
                 <h2>{props.post.title}</h2>
-                <p>
-                    <a href={`https://www.reddit.com/${props.post.subreddit}`} target="_blank" rel="noreferrer">{props.post.subreddit}</a>&nbsp;
-                    by&nbsp;
-                    <a href={`https://www.reddit.com/u/${props.post.author}`} target="_blank" rel="noreferrer">{props.post.author}</a>
-                </p>
-                {image}
-            </Col>            
+                <Row>
+                    <Col>
+                        <p><strong>Date Posted:</strong> {props.post.datePosted.getMonth() + 1 + "/" + props.post.datePosted.getDate() + "/" + props.post.datePosted.getFullYear()}</p>
+                        <p>
+                            <a href={`https://www.reddit.com/${props.post.subreddit}`} target="_blank" rel="noreferrer">{props.post.subreddit}</a>&nbsp;
+                            by&nbsp;
+                            <a href={`https://www.reddit.com/u/${props.post.author}`} target="_blank" rel="noreferrer">{props.post.author}</a>
+                        </p>
+                    </Col>
+                    <Col className="right">
+                        
+                    </Col>
+                </Row>
+            </Col>
+            {thumbnail}       
         </Row>        
     )
 };

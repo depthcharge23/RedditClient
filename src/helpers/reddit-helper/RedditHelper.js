@@ -23,26 +23,16 @@ class RedditHelper {
         const json = await response.json();
 
         // Map only the data we need
-        const posts = json.data.children.map(({ data }) => {
-            let post = {
-                "title": data.title,
-                "author": data.author,
-                "subreddit": data.subreddit_name_prefixed,
-                "url": data.url
-            };
-
-            if (data.url.indexOf(".jpg") > -1) {
-                post["src"] = data.url;
-            } else {
-                if (data.thumbnail === "self" || data.thumbnail === "default") {
-                    post["src"] = "";
-                } else {
-                    post["src"] = data.thumbnail;
-                }
-            }
-
-            return post;
-        });
+        const posts = json.data.children.map(({ data }) => ({
+            "title": data.title,
+            "author": data.author,
+            "subreddit": data.subreddit_name_prefixed,
+            "hasThumbnail": data.thumbnail !== "self" && data.thumbnail !== "default",
+            "thumbnail": data.thumbnail,
+            "src": data.url,
+            "url": data.url,
+            "datePosted": new Date(data.created * 1000)     
+        }));
 
         return posts;
     }
@@ -69,7 +59,9 @@ class RedditHelper {
             "title": data.title,
             "author": data.author,
             "subreddit": data.subreddit_name_prefixed,
-            "src": data.thumbnail,
+            "hasThumbnail": data.thumbnail !== "self" && data.thumbnail !== "default",
+            "thumbnail": data.thumbnail,
+            "src": data.url,
             "url": data.url
         }));
 
