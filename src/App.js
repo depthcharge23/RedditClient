@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 
 // Custom Components
 import { PostList } from "./features/post-list/PostList";
+import { Search } from "./features/search/Search";
 
 // Helpers
 import RedditHelper from "./helpers/reddit-helper/RedditHelper";
@@ -37,8 +38,8 @@ export class App extends React.Component {
 
     render() {
         return (
-            <Container>
-                <h1>Reddit Client</h1>
+            <Container fluid>
+                <Search />
                 <PostList posts={this.state.posts} />
             </Container>
         );

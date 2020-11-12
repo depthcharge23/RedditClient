@@ -1,0 +1,9 @@
+.search {
+    text-align: center !important;
+    padding: 15px 0px;
+}
+
+.search-bar {
+    width: 100% !important;
+    border-radius: 20px !important;
+}
