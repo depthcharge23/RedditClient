@@ -62,7 +62,8 @@ class RedditHelper {
             "hasThumbnail": data.thumbnail !== "self" && data.thumbnail !== "default",
             "thumbnail": data.thumbnail,
             "src": data.url,
-            "url": data.url
+            "url": data.url,
+            "datePosted": new Date(data.created * 1000)
         }));
 
         return posts;
