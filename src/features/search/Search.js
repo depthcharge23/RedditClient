@@ -21,7 +21,7 @@ export const Search = (props) => {
     };
 
     return (
-        <Container fluid>
+        <Container className="sticky-top" fluid>
             <Row className="search">
                 <Col className="" xl={3}>
                     <h2>RedditClient</h2>

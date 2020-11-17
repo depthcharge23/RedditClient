@@ -1,5 +1,5 @@
 .scrollbar {
     overflow-y: auto;
-    height: 800px !important;
+    /* height: 800px !important; */
     scrollbar-width: thin;
 }

@@ -1,7 +1,10 @@
 .footer {
     text-align: center;
-    vertical-align: middle;
     background-color: rgb(58, 3, 158);
     color: white;
-    /* padding: 25px; */
+    padding: 12px;
+}
+
+.spacer {
+    height: 50px;
 }
