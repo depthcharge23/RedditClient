@@ -4,11 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Bootstrap Components
 import Container from "react-bootstrap/Container";
-import Spinner from "react-bootstrap/Spinner";
 
 // Custom Components
 import { PostList } from "./features/post-list/PostList";
 import { Search } from "./features/search/Search";
+import { Loader } from "./features/loader/Loader";
 
 // Helpers
 import RedditHelper from "./helpers/reddit-helper/RedditHelper";
@@ -60,9 +60,7 @@ export class App extends React.Component {
             <Container className="p-0" fluid>
                 <Search search={this.search} />
 
-                <Spinner className="center" animation="grow" role="status" hidden={this.state.showLoader}>
-                    <span className="sr-only">Loading...</span>
-                </Spinner>
+                <Loader showLoader={this.state.showLoader} />
 
                 <PostList posts={this.state.posts} />
 
