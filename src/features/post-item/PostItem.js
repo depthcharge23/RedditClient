@@ -24,16 +24,16 @@ export const PostItem = (props) => {
     }
 
     return (
-        <Row className="post-item">
+        <Row className="post-item m-0">
             <Col xl={10}>
                 <h2>{props.post.title}</h2>
                 <Row>
                     <Col>
                         <p><strong>Date Posted:</strong> {props.post.datePosted.getMonth() + 1 + "/" + props.post.datePosted.getDate() + "/" + props.post.datePosted.getFullYear()}</p>
                         <p>
-                            <a href={`https://www.reddit.com/${props.post.subreddit}`} target="_blank" rel="noreferrer">{props.post.subreddit}</a>&nbsp;
+                            <a className="link" href={`https://www.reddit.com/${props.post.subreddit}`} target="_blank" rel="noreferrer">{props.post.subreddit}</a>&nbsp;
                             by&nbsp;
-                            <a href={`https://www.reddit.com/u/${props.post.author}`} target="_blank" rel="noreferrer">{props.post.author}</a>
+                            <a className="link" href={`https://www.reddit.com/u/${props.post.author}`} target="_blank" rel="noreferrer">{props.post.author}</a>
                         </p>
                     </Col>
                 </Row>

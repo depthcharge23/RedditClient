@@ -1,7 +1,13 @@
 .post-item {
-    margin: 30px;
+    margin: 10px !important;
     text-align: left !important;
-    border: 1px solid black;
-    border-radius: 25px;
+    border-radius: 15px;
     padding: 15px;
+    background-color: rgb(138, 76, 252);
+    /* color: rgb(187, 211, 250); */
+    color: white;
+}
+
+.link, .link:hover {
+    color: white;
 }

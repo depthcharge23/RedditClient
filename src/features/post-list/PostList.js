@@ -25,7 +25,7 @@ export const PostList = (props) => {
     }
 
     return (
-        <Container className="scrollbar" fluid>
+        <Container className="scrollbar p-0" fluid>
             {posts}
         </Container>
     );

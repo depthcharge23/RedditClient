@@ -48,7 +48,7 @@ export class App extends React.Component {
 
     render() {
         return (
-            <Container fluid>
+            <Container className="p-0" fluid>
                 <Search search={this.search} />
                 <PostList posts={this.state.posts} />
             </Container>
