@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Bootstrap Components
 import Container from "react-bootstrap/Container";
+import Spinner from "react-bootstrap/Spinner";
 
 // Custom Components
 import { PostList } from "./features/post-list/PostList";
@@ -24,7 +25,8 @@ export class App extends React.Component {
         super();
 
         this.state = {
-            "posts": []
+            "posts": [],
+            "showLoader": false
         };
 
         this.search = this.search.bind(this);
@@ -34,15 +36,22 @@ export class App extends React.Component {
         const posts = await RedditHelper.popular();
 
         this.setState({
-            "posts": posts
+            "posts": posts,
+            "showLoader": true
         });
     }
 
     async search(keywords) {
+        this.setState({
+            "posts": [],
+            "showLoader": false
+        });
+
         const posts = await RedditHelper.search(keywords);
 
         this.setState({
-            "posts": posts
+            "posts": posts,
+            "showLoader": true
         });
     }
 
@@ -50,7 +59,13 @@ export class App extends React.Component {
         return (
             <Container className="p-0" fluid>
                 <Search search={this.search} />
+
+                <Spinner className="center" animation="grow" role="status" hidden={this.state.showLoader}>
+                    <span className="sr-only">Loading...</span>
+                </Spinner>
+
                 <PostList posts={this.state.posts} />
+
                 <p className="spacer"></p>
                 <footer className="footer fixed-bottom">
                     <p>Created by Aaron Mathews</p>

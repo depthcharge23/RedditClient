@@ -20,9 +20,11 @@ export const PostList = (props) => {
         posts = props.posts.map((post, index) => {
             return <PostItem post={post} key={index} />
         });
-    } else {
-        posts = <p>No posts could be found...</p>;
-    }
+    } 
+    
+    // else {
+    //     posts = <p>No posts could be found...</p>;
+    // }
 
     return (
         <Container className="scrollbar p-0" fluid>
