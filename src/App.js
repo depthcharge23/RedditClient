@@ -26,6 +26,8 @@ export class App extends React.Component {
         this.state = {
             "posts": []
         };
+
+        this.search = this.search.bind(this);
     }
 
     async componentDidMount() {
@@ -36,10 +38,18 @@ export class App extends React.Component {
         });
     }
 
+    async search(keywords) {
+        const posts = await RedditHelper.search(keywords);
+
+        this.setState({
+            "posts": posts
+        });
+    }
+
     render() {
         return (
             <Container fluid>
-                <Search />
+                <Search search={this.search} />
                 <PostList posts={this.state.posts} />
             </Container>
         );
