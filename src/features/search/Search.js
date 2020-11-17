@@ -21,9 +21,12 @@ export const Search = (props) => {
     };
 
     return (
-        <Container>
+        <Container fluid>
             <Row className="search">
-                <Col className="no-padding">
+                <Col className="" xl={3}>
+                    <h2>RedditClient</h2>
+                </Col>
+                <Col xl={9}>
                     <Form inline onSubmit={handleSearch}>
                         <FormControl className="search-bar" type="text" placeholder="Search" onChange={handleUserInput} />
                     </Form>
