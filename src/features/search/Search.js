@@ -24,7 +24,7 @@ export const Search = (props) => {
         <Container className="sticky-top" fluid>
             <Row className="search">
                 <Col className="" xl={3}>
-                    <h2>RedditClient</h2>
+                    <p className="title"><i className="fab fa-reddit"></i> RedditClient</p>
                 </Col>
                 <Col xl={9}>
                     <Form inline onSubmit={handleSearch}>

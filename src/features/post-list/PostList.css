@@ -3,3 +3,14 @@
     /* height: 800px !important; */
     scrollbar-width: thin;
 }
+
+.no-posts {
+    text-align: center;
+    justify-content: center;
+    margin-top: 15%;
+    color: rgb(58, 3, 158);
+}
+
+.icon {
+    font-size: 5em;
+}

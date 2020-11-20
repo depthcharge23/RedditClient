@@ -20,11 +20,14 @@ export const PostList = (props) => {
         posts = props.posts.map((post, index) => {
             return <PostItem post={post} key={index} />
         });
-    } 
-    
-    // else {
-    //     posts = <p>No posts could be found...</p>;
-    // }
+    } else if (props.posts) {
+        posts = (
+            <div className="no-posts">
+                <i className="fab fa-reddit icon"></i>
+                <p>No posts could be found...</p>
+            </div>
+        );
+    }
 
     return (
         <Container className="scrollbar p-0" fluid>

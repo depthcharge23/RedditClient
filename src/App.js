@@ -25,7 +25,7 @@ export class App extends React.Component {
         super();
 
         this.state = {
-            "posts": [],
+            "posts": null,
             "showLoader": false
         };
 
@@ -43,7 +43,7 @@ export class App extends React.Component {
 
     async search(keywords) {
         this.setState({
-            "posts": [],
+            "posts": null,
             "showLoader": false
         });
 
