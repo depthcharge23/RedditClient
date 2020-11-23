@@ -9,7 +9,7 @@ import Spinner from "react-bootstrap/Spinner";
 
 export const Loader = (props) => {
     return (
-        <Container  hidden={props.showLoader}>
+        <Container  hidden={props.hideLoader}>
             <Row className="loader">
                 <Col>
                     <Spinner animation="border" />

@@ -13,7 +13,12 @@ export const Search = (props) => {
 
     const handleUserInput = (e) => {
         setKeyword(e.target.value);
-    }
+    };
+
+    const handlePopular = (e) => {
+        e.preventDefault();
+        props.popular();
+    };
 
     const handleSearch = (e) => {
         e.preventDefault();
@@ -24,7 +29,7 @@ export const Search = (props) => {
         <Container className="sticky-top" fluid>
             <Row className="search">
                 <Col className="" xl={3}>
-                    <p className="title"><i className="fab fa-reddit"></i> RedditClient</p>
+                    <p><span className="title" onClick={handlePopular}><i className="fab fa-reddit"></i> RedditClient</span></p>
                 </Col>
                 <Col xl={9}>
                     <Form inline onSubmit={handleSearch}>

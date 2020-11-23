@@ -26,9 +26,10 @@ export class App extends React.Component {
 
         this.state = {
             "posts": null,
-            "showLoader": false
+            "hideLoader": false
         };
 
+        this.popular = this.popular.bind(this);
         this.search = this.search.bind(this);
     }
 
@@ -37,30 +38,44 @@ export class App extends React.Component {
 
         this.setState({
             "posts": posts,
-            "showLoader": true
+            "hideLoader": true
+        });
+    }
+
+    async popular() {
+        this.setState({
+            "posts": null,
+            "hideLoader": false
+        });
+
+        const posts = await RedditHelper.popular();
+
+        this.setState({
+            "posts": posts,
+            "hideLoader": true
         });
     }
 
     async search(keywords) {
         this.setState({
             "posts": null,
-            "showLoader": false
+            "hideLoader": false
         });
 
         const posts = await RedditHelper.search(keywords);
 
         this.setState({
             "posts": posts,
-            "showLoader": true
+            "hideLoader": true
         });
     }
 
     render() {
         return (
             <Container className="p-0" fluid>
-                <Search search={this.search} />
+                <Search popular={this.popular} search={this.search} />
 
-                <Loader showLoader={this.state.showLoader} />
+                <Loader hideLoader={this.state.hideLoader} />
 
                 <PostList posts={this.state.posts} />
 
