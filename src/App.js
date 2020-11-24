@@ -77,7 +77,7 @@ export class App extends React.Component {
 
                 <Loader hideLoader={this.state.hideLoader} />
 
-                <PostList posts={this.state.posts} />
+                <PostList posts={this.state.posts} />                
 
                 <p className="spacer"></p>
                 <footer className="footer fixed-bottom">

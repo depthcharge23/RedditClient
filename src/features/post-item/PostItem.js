@@ -6,6 +6,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 
+// React Router
+import { Link } from "react-router-dom";
+
 /**
  * The PostItem component will be used to render each individual post in the PostList component.
  * 
@@ -26,7 +29,7 @@ export const PostItem = (props) => {
     return (
         <Row className="post-item m-0">
             <Col xl={10}>
-                <h2>{props.post.title}</h2>
+                <Link to={`/${props.post.title}`}><h2>{props.post.title}</h2></Link>
                 <Row>
                     <Col>
                         <p><strong>Date Posted:</strong> {props.post.datePosted.getMonth() + 1 + "/" + props.post.datePosted.getDate() + "/" + props.post.datePosted.getFullYear()}</p>
@@ -38,7 +41,7 @@ export const PostItem = (props) => {
                     </Col>
                 </Row>
             </Col>
-            {thumbnail}       
+            {thumbnail}
         </Row>        
     )
 };

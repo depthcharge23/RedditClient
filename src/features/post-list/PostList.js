@@ -5,6 +5,12 @@ import { PostItem } from "../post-item/PostItem";
 // Bootstrap Components
 import Container from "react-bootstrap/Container";
 
+// Custom Components
+import { Post } from "../post/Post";
+
+// React Router
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 /**
  * The PostList component will handle rendering the list of Reddit posts.
  * 
@@ -30,8 +36,18 @@ export const PostList = (props) => {
     }
 
     return (
-        <Container className="scrollbar p-0" fluid>
-            {posts}
-        </Container>
+        <Router>
+            <Switch>
+                <Route exact path="/">
+                    <Container className="scrollbar p-0" fluid>
+                        {posts}
+                    </Container>
+                </Route>
+                <Route path="/:name">
+                    <Post />
+                </Route>
+            </Switch>
+        </Router>
+        
     );
 };
