@@ -43,7 +43,7 @@ export const PostList = (props) => {
                         {posts}
                     </Container>
                 </Route>
-                <Route path="/:name">
+                <Route path="/:title">
                     <Post />
                 </Route>
             </Switch>
