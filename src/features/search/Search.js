@@ -8,6 +8,9 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 
+// React Router
+import { Link } from "react-router-dom"; 
+
 export const Search = (props) => {
     const [keyword, setKeyword] = useState("");
 
@@ -16,7 +19,6 @@ export const Search = (props) => {
     };
 
     const handlePopular = (e) => {
-        e.preventDefault();
         props.popular();
     };
 
@@ -29,7 +31,7 @@ export const Search = (props) => {
         <Container className="sticky-top" fluid>
             <Row className="search">
                 <Col className="" xl={3}>
-                    <p><span className="title" onClick={handlePopular}><i className="fab fa-reddit"></i> RedditClient</span></p>
+                    <Link className="title" to="/"><p><span onClick={handlePopular}><i className="fab fa-reddit"></i> RedditClient</span></p></Link>
                 </Col>
                 <Col xl={9}>
                     <Form inline onSubmit={handleSearch}>

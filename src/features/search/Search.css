@@ -13,4 +13,10 @@
 .title {
     font-size: 2em;
     cursor: pointer;
+    color: white;
+}
+
+.title:hover {
+    color: white;
+    text-decoration: none;
 }
