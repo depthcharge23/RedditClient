@@ -9,9 +9,13 @@ import Container from "react-bootstrap/Container";
 import { PostList } from "./features/post-list/PostList";
 import { Search } from "./features/search/Search";
 import { Loader } from "./features/loader/Loader";
+import { Post } from "./features/post/Post";
 
 // Helpers
 import RedditHelper from "./helpers/reddit-helper/RedditHelper";
+
+// React Router
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 /**
  * The App component is home to the other components PostList and Search. It will also handle all of the fetching from
@@ -72,18 +76,26 @@ export class App extends React.Component {
 
     render() {
         return (
-            <Container className="p-0" fluid>
-                <Search popular={this.popular} search={this.search} />
+            <Router>
+                <Container className="p-0" fluid>
+                    <Search popular={this.popular} search={this.search} />
+                    <Loader hideLoader={this.state.hideLoader} />
 
-                <Loader hideLoader={this.state.hideLoader} />
-
-                <PostList posts={this.state.posts} />                
-
-                <p className="spacer"></p>
-                <footer className="footer fixed-bottom">
-                    <p>Created by Aaron Mathews</p>
-                </footer>
-            </Container>
+                    <Switch>
+                        <Route exact path="/">
+                            <PostList posts={this.state.posts} />  
+                        </Route>
+                        <Route path="/:title">
+                            <Post />
+                        </Route>
+                    </Switch>
+                    
+                    <p className="spacer"></p>
+                    <footer className="footer fixed-bottom">
+                        <p>Created by Aaron Mathews</p>
+                    </footer>
+                </Container>
+            </Router>
         );
     }
 }
