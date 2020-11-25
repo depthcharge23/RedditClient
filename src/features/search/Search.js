@@ -9,29 +9,32 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 
 // React Router
-import { Link } from "react-router-dom"; 
+import { Link, useHistory } from "react-router-dom"; 
 
 export const Search = (props) => {
     const [keyword, setKeyword] = useState("");
+    const history = useHistory();
 
     const handleUserInput = (e) => {
         setKeyword(e.target.value);
     };
 
-    const handlePopular = (e) => {
+    const handlePopular = () => {
         props.popular();
     };
 
     const handleSearch = (e) => {
         e.preventDefault();
+        
         props.search(keyword);
+        history.push("/");
     };
 
     return (
         <Container className="sticky-top" fluid>
             <Row className="search">
                 <Col className="" xl={3}>
-                    <Link className="title" to="/"><p><span onClick={handlePopular}><i className="fab fa-reddit"></i> RedditClient</span></p></Link>
+                    <p><Link className="title" to="/"><span onClick={handlePopular}><i className="fab fa-reddit"></i> RedditClient</span></Link></p>
                 </Col>
                 <Col xl={9}>
                     <Form inline onSubmit={handleSearch}>
