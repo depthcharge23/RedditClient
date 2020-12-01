@@ -29,7 +29,7 @@ export const PostItem = (props) => {
     return (
         <Row className="post-item m-0">
             <Col xl={10}>
-                <Link to={`/${props.post.title}`} className="link"><h2>{props.post.title}</h2></Link>
+                <Link to={`/${encodeURIComponent(props.post.title)}`} className="link"><h2>{props.post.title}</h2></Link>
                 <Row>
                     <Col>
                         <p><strong>Date Posted:</strong> {props.post.datePosted.getMonth() + 1 + "/" + props.post.datePosted.getDate() + "/" + props.post.datePosted.getFullYear()}</p>
